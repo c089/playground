@@ -20,9 +20,8 @@ type Msg
 
 
 type alias Model =
-    { scoreA : Int
-    , scoreB : Int
-    , selectedTeam : Maybe Team
+    { selectedTeam : Maybe Team
+    , scores : ( Int, Int )
     }
 
 
@@ -30,22 +29,27 @@ main : Program Never Model Msg
 main =
     Html.beginnerProgram { model = initialModel, view = view, update = update }
 
+
 initialModel : Model
 initialModel =
-    { scoreA = 0, scoreB = 0, selectedTeam = Maybe.Nothing }
+    { scores = ( 0, 0 ), selectedTeam = Maybe.Nothing }
 
 
 updateScore : Model -> (Int -> Int) -> Model
 updateScore model calculateNewScore =
-      case model.selectedTeam of
-          Just A ->
-              { model | scoreA = calculateNewScore model.scoreA }
+    let
+        updateScore mapFn =
+            { model | scores = mapFn calculateNewScore model.scores }
+    in
+        case model.selectedTeam of
+            Just A ->
+                updateScore Tuple.mapFirst
 
-          Just B ->
-              { model | scoreB = calculateNewScore model.scoreB }
+            Just B ->
+                updateScore Tuple.mapSecond
 
-          Maybe.Nothing ->
-              model
+            Maybe.Nothing ->
+                model
 
 
 update : Msg -> Model -> Model
@@ -68,5 +72,5 @@ view model =
         , button [ onClick Increment ] [ text "+" ]
         , button [ onClick (SelectTeam A) ] [ text "A" ]
         , button [ onClick (SelectTeam B) ] [ text "B" ]
-        , div [] [ text (toString model.scoreA ++ ":" ++ toString model.scoreB) ]
+        , div [] [ text (toString (Tuple.first model.scores) ++ ":" ++ toString (Tuple.second model.scores)) ]
         ]
