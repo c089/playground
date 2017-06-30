@@ -34,27 +34,28 @@ initialModel : Model
 initialModel =
     { scoreA = 0, scoreB = 0, selectedTeam = Maybe.Nothing }
 
-updateScore : Model -> Int -> Model
-updateScore model valueToAdd =
-    case model.selectedTeam of
-        Just A ->
-            { model | scoreA = model.scoreA + valueToAdd }
 
-        Just B ->
-            { model | scoreB = model.scoreB + valueToAdd }
+updateScore : Model -> (Int -> Int) -> Model
+updateScore model calculateNewScore =
+      case model.selectedTeam of
+          Just A ->
+              { model | scoreA = calculateNewScore model.scoreA }
 
-        Maybe.Nothing ->
-            model
+          Just B ->
+              { model | scoreB = calculateNewScore model.scoreB }
+
+          Maybe.Nothing ->
+              model
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
         Increment ->
-            updateScore model 1
+            updateScore model (\x -> x + 1)
 
         Decrement ->
-            updateScore model -1
+            updateScore model (\x -> x - 1)
 
         SelectTeam team ->
             { model | selectedTeam = Maybe.Just team }
