@@ -11,20 +11,24 @@ import Scoreboard exposing (..)
 
 suite : Test
 suite =
-    describe "Scoreboard"
-        [ test "initializes at 0:0" <|
-            \_ ->
-                expectScoreToBe "0:0"
-                    (afterReceiving [])
-        , test "allows increasing the score for team A" <|
-            \_ ->
-                expectScoreToBe "1:0"
-                    (afterReceiving [ SelectTeam A, IncrementScore ])
-        , test "allows increasing the score for team B" <|
-            \_ ->
-                expectScoreToBe "0:1"
-                    (afterReceiving [ SelectTeam B, IncrementScore ])
-        ]
+    let
+        noMessages =
+            []
+    in
+        describe "Scoreboard"
+            [ test "initializes at 0:0" <|
+                \_ ->
+                    expectScoreToBe "0:0"
+                        (afterReceiving noMessages)
+            , test "allows increasing the score for team A" <|
+                \_ ->
+                    expectScoreToBe "1:0"
+                        (afterReceiving [ SelectTeam A, IncrementScore ])
+            , test "allows increasing the score for team B" <|
+                \_ ->
+                    expectScoreToBe "0:1"
+                        (afterReceiving [ SelectTeam B, IncrementScore ])
+            ]
 
 
 expectScoreToBe : String -> Html Msg -> Expectation
