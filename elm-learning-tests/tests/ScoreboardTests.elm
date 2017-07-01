@@ -14,6 +14,14 @@ suite =
     let
         noMessages =
             []
+
+        expectScoreToBe expectedScore html =
+            Query.fromHtml html
+                |> Query.find [ class "score" ]
+                |> Query.has [ text expectedScore ]
+
+        afterReceiving messages =
+            view (foldl update initialModel messages)
     in
         describe "Scoreboard"
             [ test "initializes at 0:0" <|
@@ -29,15 +37,3 @@ suite =
                     expectScoreToBe "0:1"
                         (afterReceiving [ SelectTeam B, IncrementScore ])
             ]
-
-
-expectScoreToBe : String -> Html Msg -> Expectation
-expectScoreToBe expectedScore html =
-    Query.fromHtml html
-        |> Query.find [ class "score" ]
-        |> Query.has [ text expectedScore ]
-
-
-afterReceiving : List Msg -> Html Msg
-afterReceiving messages =
-    view (foldl update initialModel messages)
