@@ -1,4 +1,4 @@
-module HTTPAndJSONTests exposing (suite)
+module JsonTests exposing (suite)
 
 import Test exposing (Test, describe, test)
 import Expect
