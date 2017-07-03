@@ -77,7 +77,7 @@ suite =
                         "Q1234"
 
                     expected =
-                        Ok [ ( entityId, ([ ( propertyId, [ Claim claimId Preferred ] ) ]) ) ]
+                        Ok [ ( entityId, [ ( propertyId, [ Claim claimId Preferred ] ) ] ) ]
 
                     actual =
                         decodeString decoder json
