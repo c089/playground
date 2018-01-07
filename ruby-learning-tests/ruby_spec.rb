@@ -5,10 +5,10 @@ class StringCalculator
     else
       comma = input.index(',')
       newline = input.index("\n")
-      separator = comma || newline
-      if separator
-        first_number = input[0..separator-1]
-        remaining_input = input[separator+1..input.length]
+      delimitor = comma || newline
+      if delimitor
+        first_number = input[0..delimitor-1]
+        remaining_input = input[delimitor+1..input.length]
         calculate(first_number) + calculate(remaining_input)
       else
         input.to_i
