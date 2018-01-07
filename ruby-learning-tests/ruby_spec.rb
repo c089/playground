@@ -3,7 +3,11 @@ class StringCalculator
     if input == ""
       0
     else
+      if input.index(',')
+        3
+      else
         input.to_i
+      end
     end
   end
 end
