@@ -49,4 +49,8 @@ RSpec.describe "StringCalculator" do
   it "can numbers separated by newlins" do
     expect(StringCalculator.new.calculate("1\n2")).to eq 3
   end
+
+  it "supports different delimiter" do
+    expect(StringCalculator.new.calculate("//;\n1;2")).to eq 3
+  end
 end
