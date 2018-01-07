@@ -39,4 +39,8 @@ RSpec.describe "StringCalculator" do
   it "can add two large numbers" do
     expect(StringCalculator.new.calculate("1024,1024")).to eq 2048
   end
+
+  it "can add many numbers" do
+    expect(StringCalculator.new.calculate("1,2,3,4,5")).to eq 15
+  end
 end
