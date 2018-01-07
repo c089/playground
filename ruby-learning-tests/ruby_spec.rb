@@ -43,4 +43,8 @@ RSpec.describe "StringCalculator" do
   it "can add many numbers" do
     expect(StringCalculator.new.calculate("1,2,3,4,5")).to eq 15
   end
+
+  it "can numbers separated by newlins" do
+    expect(StringCalculator.new.calculate("1\n2")).to eq 3
+  end
 end
