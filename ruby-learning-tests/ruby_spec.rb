@@ -5,7 +5,7 @@ class StringCalculator
     else
       comma = input.index(',')
       if comma
-        first_number = input[0..comma].to_i
+        first_number = calculate(input[0..comma-1])
         second_number = calculate(input[comma+1..input.length])
         first_number + second_number
       else
