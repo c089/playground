@@ -24,4 +24,8 @@ RSpec.describe "StringCalculator" do
   it "returns a single negative number" do
     expect(StringCalculator.new.calculate("-1")).to eq (-1)
   end
+
+  it "can add two numbers" do
+    expect(StringCalculator.new.calculate("1,2")).to eq 3
+  end
 end
