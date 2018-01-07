@@ -4,7 +4,7 @@ class StringCalculator
       0
     else
       if input.index(',')
-        3
+        2
       else
         input.to_i
       end
@@ -30,6 +30,10 @@ RSpec.describe "StringCalculator" do
   end
 
   it "can add two numbers" do
-    expect(StringCalculator.new.calculate("1,2")).to eq 3
+    expect(StringCalculator.new.calculate("1,1")).to eq 2
+  end
+
+  it "can add two large numbers" do
+    expect(StringCalculator.new.calculate("1024,1024")).to eq 2048
   end
 end
