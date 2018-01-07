@@ -1,10 +1,6 @@
 class StringCalculator
   def calculate(input)
-    if input == ""
-      0
-    else
-        input.to_i
-    end
+    input.to_i
   end
 end
 
