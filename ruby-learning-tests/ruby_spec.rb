@@ -3,8 +3,11 @@ class StringCalculator
     if input == ""
       0
     else
-      if input.index(',')
-        2
+      comma = input.index(',')
+      if comma
+        first_number = input[0..comma].to_i
+        second_number = input[comma+1..input.length].to_i
+        first_number + second_number
       else
         input.to_i
       end
