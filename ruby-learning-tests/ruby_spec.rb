@@ -4,7 +4,7 @@ class StringCalculator
       0
     else
       if input == "98765"
-        98765
+        input.to_i
       elsif input == "-1"
         -1
       else
