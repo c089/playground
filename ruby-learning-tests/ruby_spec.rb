@@ -5,13 +5,14 @@ class StringCalculator
     else
       comma = input.index(',')
       newline = input.index("\n")
-      if comma
-        first_number = input[0..comma-1]
-        remaining_input = input[comma+1..input.length]
+      separator = comma || newline
+      if separator
+        first_number = input[0..separator-1]
+        remaining_input = input[separator+1..input.length]
         calculate(first_number) + calculate(remaining_input)
-      elsif newline
-        first_number = input[0..newline-1]
-        remaining_input = input[newline+1..input.length]
+      elsif separator
+        first_number = input[0..separator-1]
+        remaining_input = input[separator+1..input.length]
         calculate(first_number) + calculate(remaining_input)
       else
         input.to_i
