@@ -6,9 +6,9 @@ class StringCalculator
       if input == "98765"
         input.to_i
       elsif input == "-1"
-        -1
+        input.to_i
       else
-        1
+        input.to_i
       end
     end
   end
