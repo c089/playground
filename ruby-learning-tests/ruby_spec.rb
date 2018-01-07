@@ -3,13 +3,7 @@ class StringCalculator
     if input == ""
       0
     else
-      if input == "98765"
         input.to_i
-      elsif input == "-1"
-        input.to_i
-      else
-        input.to_i
-      end
     end
   end
 end
