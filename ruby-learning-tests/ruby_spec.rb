@@ -5,11 +5,9 @@ class StringCalculator
     else
       comma = input.index(',')
       if comma
-        first_number_string = input[0..comma-1]
+        first_number = input[0..comma-1]
         remaining_input = input[comma+1..input.length]
-        first_number = calculate(first_number_string)
-        second_number = calculate(remaining_input)
-        first_number + second_number
+        calculate(first_number) + calculate(remaining_input)
       else
         input.to_i
       end
