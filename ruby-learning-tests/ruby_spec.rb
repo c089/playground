@@ -55,4 +55,9 @@ RSpec.describe "StringCalculator" do
   it "supports different delimiter" do
     expect(StringCalculator.new.calculate("//;\n1;2")).to eq 3
   end
+
+  it "supports different delimiter multiple times" do
+    expect(StringCalculator.new.calculate("//;\n1;2;3")).to eq 6
+  end
+
 end
