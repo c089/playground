@@ -7,10 +7,6 @@ import Test exposing (Test, describe, test)
 add numbers =
     if numbers == "" then
         Ok 0
-    else if numbers == "1" then
-        String.toInt numbers
-    else if numbers == "2" then
-        String.toInt numbers
     else
         String.toInt numbers
 
