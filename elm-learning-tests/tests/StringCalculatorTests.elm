@@ -1,7 +1,11 @@
-module Main exposing (..)
+module StringCalculatorTests exposing (..)
 
 import Expect
 import Test exposing (Test, describe, test)
+
+
+add _ =
+    0
 
 
 suite : Test
