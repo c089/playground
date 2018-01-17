@@ -12,7 +12,7 @@ add numbers =
     else if numbers == "2" then
         String.toInt "2"
     else
-        Ok 123456789
+        String.toInt "123456789"
 
 
 suite : Test
