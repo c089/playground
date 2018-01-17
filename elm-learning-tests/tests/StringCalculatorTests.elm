@@ -4,8 +4,11 @@ import Expect
 import Test exposing (Test, describe, test)
 
 
-add _ =
-    0
+add numbers =
+    if numbers == "" then
+        0
+    else
+        1
 
 
 suite : Test
