@@ -9,8 +9,10 @@ add numbers =
         0
     else if numbers == "1" then
         1
-    else
+    else if numbers == "2" then
         2
+    else
+        123456789
 
 
 suite : Test
@@ -22,4 +24,6 @@ suite =
             \_ -> Expect.equal 1 (add "1")
         , test "returns 2 for single number 2" <|
             \_ -> Expect.equal 2 (add "2")
+        , test "returns a single large number" <|
+            \_ -> Expect.equal 123456789 (add "123456789")
         ]
