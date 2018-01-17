@@ -8,7 +8,7 @@ add numbers =
     if numbers == "" then
         Ok 0
     else if numbers == "1" then
-        Ok 1
+        String.toInt "1"
     else if numbers == "2" then
         Ok 2
     else
