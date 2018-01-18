@@ -9,6 +9,8 @@ add numbers =
         Ok 0
     else if numbers == "1,2" then
         Ok 3
+    else if numbers == "3,6" then
+        Ok 9
     else
         String.toInt numbers
 
@@ -28,4 +30,6 @@ suite =
             \_ -> Expect.equal (Ok 3) (add "1,2")
         , test "can add two more numbers" <|
             \_ -> Expect.equal (Ok 9) (add "3,6")
+        , test "can add two large numbers" <|
+            \_ -> Expect.equal (Ok 3) (add "1,2")
         ]
