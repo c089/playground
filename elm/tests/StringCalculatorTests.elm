@@ -22,4 +22,6 @@ suite =
             \_ -> Expect.equal (Ok 2) (add "2")
         , test "returns a single large number" <|
             \_ -> Expect.equal (Ok 123456789) (add "123456789")
+        , test "can add two numbers" <|
+            \_ -> Expect.equal (Ok 3) (add "1,2")
         ]
