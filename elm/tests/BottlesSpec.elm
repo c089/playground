@@ -5,7 +5,9 @@ import Test exposing (Test, describe, test)
 
 
 verses a b =
-    if a == 99 then
+    if a == 1 && b == 0 then
+        verse 1 ++ "\n" ++ verse 0
+    else if a == 99 then
         verse 99 ++ "\n" ++ verse 98
     else
         verse 2 ++ "\n" ++ verse 1 ++ "\n" ++ verse 0
