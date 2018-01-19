@@ -16,6 +16,12 @@ verse verse_number =
                 ++ "Take one down and pass it around, "
                 ++ "1 bottle of beer on the wall.\n"
 
+        1 ->
+            "1 bottle of beer on the wall, "
+                ++ "1 bottle of beer.\n"
+                ++ "Take it down and pass it around, "
+                ++ "no more bottles of beer on the wall.\n"
+
         _ ->
             bottles
                 ++ " bottles of beer on the wall, "
