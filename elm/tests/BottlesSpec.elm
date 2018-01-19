@@ -4,6 +4,10 @@ import Expect
 import Test exposing (Test, describe, test)
 
 
+verses a b =
+    ""
+
+
 verse verse_number =
     let
         bottles =
@@ -86,4 +90,18 @@ suite =
                         ++ "99 bottles of beer on the wall.\n"
                     )
                     (verse 0)
+        , test "a few verses" <|
+            \_ ->
+                Expect.equal
+                    ("99 bottles of beer on the wall, "
+                        ++ "99 bottles of beer.\n"
+                        ++ "Take one down and pass it around, "
+                        ++ "98 bottles of beer on the wall.\n"
+                        ++ "\n"
+                        ++ "98 bottles of beer on the wall, "
+                        ++ "98 bottles of beer.\n"
+                        ++ "Take one down and pass it around, "
+                        ++ "97 bottles of beer on the wall.\n"
+                    )
+                    (verses 99 98)
         ]
