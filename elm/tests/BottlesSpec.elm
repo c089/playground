@@ -47,7 +47,7 @@ suite =
                         ++ "2 bottles of beer on the wall.\n"
                     )
                     (verse 3)
-        , test "the second-last verse" <|
+        , test "verse 2" <|
             \_ ->
                 Expect.equal
                     ("2 bottles of beer on the wall, "
