@@ -13,7 +13,8 @@ verse verse_number =
         99 ->
             bottles
                 ++ " bottles of beer on the wall, "
-                ++ "99 bottles of beer.\n"
+                ++ bottles
+                ++ " bottles of beer.\n"
                 ++ "Take one down and pass it around, "
                 ++ toString (verse_number - 1)
                 ++ " bottles of beer on the wall.\n"
