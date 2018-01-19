@@ -39,4 +39,13 @@ suite =
                         ++ "2 bottles of beer on the wall.\n"
                     )
                     (verse 3)
+        , test "the second-last verse" <|
+            \_ ->
+                Expect.equal
+                    ("2 bottles of beer on the wall, "
+                        ++ "2 bottles of beer.\n"
+                        ++ "Take one down and pass it around, "
+                        ++ "1 bottle of beer on the wall.\n"
+                    )
+                    (verse 2)
         ]
