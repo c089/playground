@@ -18,7 +18,7 @@ verse verse_number =
                 ++ "98 bottles of beer on the wall.\n"
 
         3 ->
-            toString verse_number
+            bottles
                 ++ " bottles of beer on the wall, "
                 ++ "3 bottles of beer.\n"
                 ++ "Take one down and pass it around, "
