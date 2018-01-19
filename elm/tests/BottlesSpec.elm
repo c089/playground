@@ -9,13 +9,21 @@ verse verse_number =
         bottles =
             toString verse_number
     in
-    bottles
-        ++ " bottles of beer on the wall, "
-        ++ bottles
-        ++ " bottles of beer.\n"
-        ++ "Take one down and pass it around, "
-        ++ toString (verse_number - 1)
-        ++ " bottles of beer on the wall.\n"
+    case verse_number of
+        2 ->
+            "2 bottles of beer on the wall, "
+                ++ "2 bottles of beer.\n"
+                ++ "Take one down and pass it around, "
+                ++ "1 bottle of beer on the wall.\n"
+
+        _ ->
+            bottles
+                ++ " bottles of beer on the wall, "
+                ++ bottles
+                ++ " bottles of beer.\n"
+                ++ "Take one down and pass it around, "
+                ++ toString (verse_number - 1)
+                ++ " bottles of beer on the wall.\n"
 
 
 suite : Test
