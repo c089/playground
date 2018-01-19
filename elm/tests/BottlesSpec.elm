@@ -20,7 +20,8 @@ verse verse_number =
         3 ->
             bottles
                 ++ " bottles of beer on the wall, "
-                ++ "3 bottles of beer.\n"
+                ++ bottles
+                ++ " bottles of beer.\n"
                 ++ "Take one down and pass it around, "
                 ++ "2 bottles of beer on the wall.\n"
 
