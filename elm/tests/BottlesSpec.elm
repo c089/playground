@@ -56,4 +56,13 @@ suite =
                         ++ "1 bottle of beer on the wall.\n"
                     )
                     (verse 2)
+        , test "verse 1" <|
+            \_ ->
+                Expect.equal
+                    ("1 bottle of beer on the wall, "
+                        ++ "1 bottle of beer.\n"
+                        ++ "Take it down and pass it around, "
+                        ++ "no more bottles of beer on the wall.\n"
+                    )
+                    (verse 1)
         ]
