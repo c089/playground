@@ -10,7 +10,7 @@ verses a b =
     else if a == 99 then
         verse a ++ "\n" ++ verse b
     else
-        verse 2 ++ "\n" ++ verses 1 0
+        verse a ++ "\n" ++ verses (a - 1) (a - 2)
 
 
 verse verse_number =
