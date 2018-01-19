@@ -8,7 +8,7 @@ verses a b =
     if a == 1 && b == 0 then
         verse a ++ "\n" ++ verse b
     else if a == 99 then
-        verse 99 ++ "\n" ++ verse 98
+        verse a ++ "\n" ++ verse b
     else
         verse 2 ++ "\n" ++ verses 1 0
 
