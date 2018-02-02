@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`verify 1`] = `
+<div
+  id="rentals"
+  style="width: 500px;"
+>
+  Rental Record for: foo
+
+  <div>
+    <span>
+      movie 1
+    </span>
+    <span
+      class="amount"
+    >
+      2 EUR
+    </span>
+  </div>
+  <div>
+    <span>
+      other
+    </span>
+    <span
+      class="amount"
+    >
+      1.5 EUR
+    </span>
+  </div>
+  <div>
+    <span>
+      nonsense
+    </span>
+    <span
+      class="amount"
+    >
+      15 EUR
+    </span>
+  </div>
+  <div>
+    Amount owed is 18.5 EUR
+  </div>
+  <div>
+    You earned 4 frequent renter points
+  </div>
+</div>
+`;
