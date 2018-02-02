@@ -8,13 +8,14 @@
 </head>
 <body>
     <div id="rentals"></div>
+    <script src="./index.js"></script>
     <script type="text/javascript">
-     rentals = [
-         {daysRented: 2, movie: { title: 'movie 1', priceCode: 'REGULAR' }},
-         {daysRented: 1, movie: { title: 'other', priceCode: 'CHILDRENS'} },
-         {daysRented: 5, movie: { title: 'nonsense', priceCode: 'NEW_RELEASE'}}];
-     customerName = 'foo';
+      var rentals = [
+          {daysRented: 2, movie: { title: 'movie 1', priceCode: 'REGULAR' }},
+          {daysRented: 1, movie: { title: 'other', priceCode: 'CHILDRENS'} },
+          {daysRented: 5, movie: { title: 'nonsense', priceCode: 'NEW_RELEASE'}}];
+      var customerName = 'foo';
+      showStatement(customerName, rentals);
     </script>
-    <script src="./index.js"> </script>
 </body>
 </html>

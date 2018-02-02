@@ -1,10 +1,7 @@
-function showStatement() {
+function showStatement(customerName, rentals) {
     var totalAmount = 0;
     var frequentRenterPoints = 0;
 
-    // data already provided as global vars from our awesome backend!
-    var rentals = window.rentals;
-    var customerName = window.customerName;
     var node = document.getElementById('rentals');
     var result = "Rental Record for: " + customerName + "\n";
     var i = 0;
@@ -64,5 +61,3 @@ function showStatement() {
     footerEl.append(result);
     node.appendChild(footerEl);
 }
-
-showStatement();
