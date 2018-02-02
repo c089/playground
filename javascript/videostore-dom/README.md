@@ -13,4 +13,7 @@ other parts of the system are tightly coupled to this exact markup for now.
 ```
 npm install
 npm start
+npm test
+npm test -- --updateSnapshot
 ```
+
