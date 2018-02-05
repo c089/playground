@@ -61,3 +61,7 @@ function showStatement(customerName, rentals) {
     footerEl.append(result);
     node.appendChild(footerEl);
 }
+
+ if (typeof require !== 'undefined') {
+     module.exports = showStatement;
+ }
