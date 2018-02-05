@@ -26,11 +26,10 @@ test("let's get it in a test harness", t => {
 test("can use showDocument as a module", t => {
     const showStatement = require('./index.js');
     const document = givenADocument();
-    const output = document.getElementById('rentals');
 
     showStatement(document, 'john', []);
 
-    t.snapshot(output.outerHTML);
+    t.snapshot(document.getElementById('rentals').outerHTML);
 });
 
 const givenADocument = () => {
