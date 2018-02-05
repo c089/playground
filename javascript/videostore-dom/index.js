@@ -63,5 +63,7 @@ function showStatement(customerName, rentals) {
 }
 
  if (typeof require !== 'undefined') {
-     module.exports = showStatement;
+     module.exports = function (customerName, rentals) {
+         showStatement(customerName, rentals);
+     };
  }
