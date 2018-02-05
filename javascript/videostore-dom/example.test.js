@@ -33,7 +33,7 @@ test("can use showDocument as a module", t => {
     </html>
     `;
     const dom = new jsdom.JSDOM(html, { runScripts: "dangerously" });
-    global.document = dom.window.document;
+    const document = dom.window.document;
     const output = document.getElementById('rentals');
 
     showStatement(document, 'john', []);
