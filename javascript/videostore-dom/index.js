@@ -1,8 +1,8 @@
 function showStatement(customerName, rentals) {
-    showStatementReplacement(customerName, rentals);
+    showStatementReplacement(document, customerName, rentals);
 }
 
-function showStatementReplacement(customerName, rentals) {
+function showStatementReplacement(document, customerName, rentals) {
     var totalAmount = 0;
     var frequentRenterPoints = 0;
 

@@ -36,7 +36,7 @@ test("can use showDocument as a module", t => {
     global.document = dom.window.document;
     const output = document.getElementById('rentals');
 
-    showStatement('john', []);
+    showStatement(document, 'john', []);
 
     t.snapshot(output.outerHTML);
 });
