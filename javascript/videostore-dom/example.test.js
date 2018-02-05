@@ -25,18 +25,22 @@ test("let's get it in a test harness", t => {
 
 test("can use showDocument as a module", t => {
     const showStatement = require('./index.js');
-    const html = `
-    <html>
-      <body>
-        <div id="rentals"></div>
-      </body>
-    </html>
-    `;
-    const dom = new jsdom.JSDOM(html, { runScripts: "dangerously" });
-    const document = dom.window.document;
+    const document = givenADocument();
     const output = document.getElementById('rentals');
 
     showStatement(document, 'john', []);
 
     t.snapshot(output.outerHTML);
 });
+
+const givenADocument = () => {
+    const html = `
+        <html>
+        <body>
+            <div id="rentals"></div>
+        </body>
+        </html>
+        `;
+    const dom = new jsdom.JSDOM(html, { runScripts: "dangerously" });
+    return dom.window.document;
+}
