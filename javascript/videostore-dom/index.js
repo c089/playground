@@ -62,8 +62,10 @@ function showStatement(customerName, rentals) {
     node.appendChild(footerEl);
 }
 
+function showStatementReplacement(customerName, rentals) {
+    showStatement(customerName, rentals);
+}
+
  if (typeof require !== 'undefined') {
-     module.exports = function (customerName, rentals) {
-         showStatement(customerName, rentals);
-     };
+     module.exports = showStatementReplacement;
  }
