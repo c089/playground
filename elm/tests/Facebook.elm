@@ -15,9 +15,13 @@ type Msg
     | ReceiveUserId (Result String String)
 
 
-initialModel : Model
 initialModel =
     NeedAccessToken
+
+
+init : ( Model, Cmd Msg )
+init =
+    ( initialModel, Cmd.none )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -33,7 +37,7 @@ update msg model =
             ( model, Cmd.none )
 
 
-view : Model -> Html ()
+view : Model -> Html Msg
 view model =
     div []
         [ label
@@ -55,3 +59,12 @@ view model =
             _ ->
                 span [] []
         ]
+
+
+main =
+    Html.program
+        { view = view
+        , init = init
+        , update = update
+        , subscriptions = \_ -> Sub.none
+        }
