@@ -1,5 +1,6 @@
 module FacebookTests exposing (suite)
 
+import Expect
 import Facebook exposing (Msg(..), initialModel, update, view)
 import Html exposing (Html)
 import Html.Attributes as Attributes
@@ -25,8 +26,13 @@ suite =
                     |> Query.has [ Selector.disabled True ]
         , test "shows the user id when it is retrieved" <|
             \() ->
-                view (Tuple.first (update (ReceiveUserId "123") initialModel))
+                view (Tuple.first (update (ReceiveUserId (Ok "123")) initialModel))
                     |> Query.fromHtml
                     |> Query.find [ id "user_id" ]
                     |> Query.has [ text "123" ]
+        , test "ask for token again when receiving user id fails" <|
+            \() ->
+                update (ReceiveUserId (Err "Request failed.")) initialModel
+                    |> Tuple.first
+                    |> Expect.equal Facebook.NeedAccessToken
         ]

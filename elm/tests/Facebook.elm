@@ -12,7 +12,7 @@ type Model
 
 type Msg
     = SetAccessToken String
-    | ReceiveUserId String
+    | ReceiveUserId (Result String String)
 
 
 initialModel : Model
@@ -26,8 +26,11 @@ update msg model =
         SetAccessToken token ->
             ( WaitingForUserId, Cmd.none )
 
-        ReceiveUserId userid ->
+        ReceiveUserId (Ok userid) ->
             ( ReceivedUserId userid, Cmd.none )
+
+        ReceiveUserId (Result.Err _) ->
+            ( model, Cmd.none )
 
 
 view : Model -> Html ()
