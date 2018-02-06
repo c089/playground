@@ -2,6 +2,7 @@ module Facebook exposing (..)
 
 import Html exposing (Html, div, input, label, span, text)
 import Html.Attributes exposing (attribute, id)
+import Html.Events exposing (onInput)
 
 
 type Model
@@ -53,6 +54,7 @@ view model =
                         _ ->
                             False
                     )
+                , onInput SetAccessToken
                 ]
                 []
             ]
