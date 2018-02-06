@@ -5,6 +5,7 @@ import Facebook exposing (Msg(..), initialModel, update, view)
 import Html exposing (Html)
 import Html.Attributes as Attributes
 import Test exposing (Test, describe, test)
+import Test.Html.Event as Event
 import Test.Html.Query as Query
 import Test.Html.Selector as Selector exposing (attribute, class, id, tag, text)
 
@@ -42,4 +43,13 @@ suite =
                     |> update (ReceiveUserId (Err "Request failed."))
                     |> Tuple.first
                     |> Expect.equal Facebook.NeedAccessToken
+        , test "retrieves id when token is entered" <|
+            \() ->
+                initialModel
+                    |> view
+                    |> Query.fromHtml
+                    |> Query.find [ tag "label", attribute "for" "access_token" ]
+                    |> Query.find [ tag "input" ]
+                    |> Event.simulate (Event.input "token")
+                    |> Event.expect (Facebook.SetAccessToken "token")
         ]
