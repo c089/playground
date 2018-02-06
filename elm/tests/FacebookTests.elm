@@ -14,26 +14,32 @@ suite =
     describe "Facebook Graph API Playground"
         [ test "starts by asking for my access token" <|
             \() ->
-                view initialModel
+                initialModel
+                    |> view
                     |> Query.fromHtml
                     |> Query.find [ tag "label", attribute "for" "access_token" ]
                     |> Query.has [ text "Access Token" ]
         , test "disables input when I set my access token" <|
             \_ ->
-                view Facebook.WaitingForUserId
+                Facebook.WaitingForUserId
+                    |> view
                     |> Query.fromHtml
                     |> Query.find [ tag "label", attribute "for" "access_token" ]
                     |> Query.find [ tag "input" ]
                     |> Query.has [ Selector.disabled True ]
         , test "shows the user id when it is retrieved" <|
             \() ->
-                view (Tuple.first (update (ReceiveUserId (Ok "123")) initialModel))
+                initialModel
+                    |> update (ReceiveUserId (Ok "123"))
+                    |> Tuple.first
+                    |> view
                     |> Query.fromHtml
                     |> Query.find [ id "user_id" ]
                     |> Query.has [ text "123" ]
         , test "ask for token again when receiving user id fails" <|
             \() ->
-                update (ReceiveUserId (Err "Request failed.")) initialModel
+                initialModel
+                    |> update (ReceiveUserId (Err "Request failed."))
                     |> Tuple.first
                     |> Expect.equal Facebook.NeedAccessToken
         ]
