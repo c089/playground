@@ -1,6 +1,6 @@
 module Facebook exposing (..)
 
-import Html exposing (Html, div, label, span, text)
+import Html exposing (Html, div, input, label, span, text)
 import Html.Attributes exposing (attribute, id)
 
 
@@ -42,16 +42,20 @@ view model =
     div []
         [ label
             [ attribute "for" "access_token"
-            , Html.Attributes.disabled
-                (case model of
-                    WaitingForUserId ->
-                        True
-
-                    _ ->
-                        False
-                )
             ]
-            [ text "Access Token" ]
+            [ text "Access Token"
+            , input
+                [ Html.Attributes.disabled
+                    (case model of
+                        WaitingForUserId ->
+                            True
+
+                        _ ->
+                            False
+                    )
+                ]
+                []
+            ]
         , case model of
             ReceivedUserId user_id ->
                 span [ id "user_id" ] [ text user_id ]

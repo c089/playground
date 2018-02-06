@@ -23,6 +23,7 @@ suite =
                 view Facebook.WaitingForUserId
                     |> Query.fromHtml
                     |> Query.find [ tag "label", attribute "for" "access_token" ]
+                    |> Query.find [ tag "input" ]
                     |> Query.has [ Selector.disabled True ]
         , test "shows the user id when it is retrieved" <|
             \() ->
