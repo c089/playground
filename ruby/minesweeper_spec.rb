@@ -9,22 +9,10 @@ def show(input)
     "000"
   end
 
-  if number_of_columns == "1"
   <<~END
     Field #1:
     #{row}
   END
-  elsif number_of_columns == "2"
-    <<~END
-    Field #1:
-    #{row}
-  END
-  elsif number_of_columns == "3"
-  <<~END
-    Field #1:
-    #{row}
-  END
-  end
 end
 
 RSpec.describe "Minesweeper" do
