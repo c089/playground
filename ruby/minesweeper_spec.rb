@@ -1,15 +1,16 @@
 def show(input)
-  if input[2] == "1"
+  number_of_columns = input[2]
+  if number_of_columns == "1"
   <<~END
     Field #1:
     0
   END
-  elsif input[2] == "3"
+  elsif number_of_columns == "3"
     <<~END
     Field #1:
     000
   END
-  elsif input[2] == "2"
+  elsif number_of_columns == "2"
     <<~END
     Field #1:
     00
