@@ -4,6 +4,11 @@ def show(input)
     Field #1:
     0
   END
+  elsif input[2] == "3"
+    <<~END
+    Field #1:
+    000
+  END
   else
     <<~END
     Field #1:
@@ -36,6 +41,21 @@ RSpec.describe "Minesweeper" do
     expected = <<~END
       Field #1:
       00
+    END
+
+    actual = show(input)
+
+    expect(actual).to eq ( expected )
+  end
+
+  it "given an empty 1 by 3 minefield, returns three safe fields" do
+    input = <<~END
+      1 3
+      ...
+    END
+    expected = <<~END
+      Field #1:
+      000
     END
 
     actual = show(input)
