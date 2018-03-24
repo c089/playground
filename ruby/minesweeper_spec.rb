@@ -1,11 +1,12 @@
 def show(input)
-  number_of_columns = input[2]
+  number_of_columns = input[2].to_i
 
-  row = if number_of_columns == "1"
+
+  row = if number_of_columns == 1
     "0"
-  elsif number_of_columns == "2"
+  elsif number_of_columns == 2
     "00"
-  elsif number_of_columns == "3"
+  elsif number_of_columns == 3
     "000"
   end
 
