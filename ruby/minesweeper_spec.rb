@@ -1,6 +1,6 @@
 def show(input)
+  number_of_rows = input[0].to_i
   number_of_columns = input[2].to_i
-
 
   row = if number_of_columns == 1
     "0"
@@ -10,10 +10,18 @@ def show(input)
     "000"
   end
 
-  <<~END
-    Field #1:
-    #{row}
-  END
+  if number_of_rows == 2
+    <<~END
+      Field #1:
+      0
+      0
+    END
+  else
+    <<~END
+      Field #1:
+      #{row}
+    END
+  end
 end
 
 RSpec.describe "Minesweeper" do
@@ -55,6 +63,23 @@ RSpec.describe "Minesweeper" do
     expected = <<~END
       Field #1:
       000
+    END
+
+    actual = show(input)
+
+    expect(actual).to eq ( expected )
+  end
+
+  it "given an empty 2 by 1 minefield, returns two safe fields" do
+    input = <<~END
+      2 1
+      .
+      .
+    END
+    expected = <<~END
+      Field #1:
+      0
+      0
     END
 
     actual = show(input)
