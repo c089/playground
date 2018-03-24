@@ -1,12 +1,19 @@
 def show(input)
+  if input[2] == "1"
   <<~END
     Field #1:
     0
   END
+  else
+    <<~END
+    Field #1:
+    00
+  END
+  end
 end
 
 RSpec.describe "Minesweeper" do
-  it "given a field with a single field that does not have a mine, returns a 0" do
+  it "given an empty 1 by 1 minefield, returns a single safe field" do
     input = <<~END
       1 1
       .
@@ -21,6 +28,20 @@ RSpec.describe "Minesweeper" do
     expect(actual).to eq ( expected )
   end
 
+  it "given an empty 1 by 2 minefield, returns two safe fields" do
+    input = <<~END
+      1 2
+      ..
+    END
+    expected = <<~END
+      Field #1:
+      00
+    END
+
+    actual = show(input)
+
+    expect(actual).to eq ( expected )
+  end
 
   # it "passes the acceptance test" do
   #   input = <<~END
