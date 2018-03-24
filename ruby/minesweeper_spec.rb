@@ -1,19 +1,28 @@
 def show(input)
   number_of_columns = input[2]
+
+  row = if number_of_columns == "1"
+    "0"
+  elsif number_of_columns == "2"
+    "00"
+  elsif number_of_columns == "3"
+    "000"
+  end
+
   if number_of_columns == "1"
   <<~END
     Field #1:
-    0
+    #{row}
   END
   elsif number_of_columns == "2"
     <<~END
     Field #1:
-    00
+    #{row}
   END
   elsif number_of_columns == "3"
   <<~END
     Field #1:
-    000
+    #{row}
   END
   end
 end
