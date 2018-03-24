@@ -5,15 +5,15 @@ def show(input)
     Field #1:
     0
   END
-  elsif number_of_columns == "3"
-    <<~END
-    Field #1:
-    000
-  END
   elsif number_of_columns == "2"
     <<~END
     Field #1:
     00
+  END
+  elsif number_of_columns == "3"
+  <<~END
+    Field #1:
+    000
   END
   end
 end
