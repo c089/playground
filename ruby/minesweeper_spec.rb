@@ -9,7 +9,7 @@ def show(input)
     Field #1:
     000
   END
-  else
+  elsif input[2] == "2"
     <<~END
     Field #1:
     00
