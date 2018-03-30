@@ -1,15 +1,19 @@
 RSpec.describe "Minesweeper" do
+  def display(c)
+    if c == "*"
+      "*"
+    else
+      "0"
+    end
+  end
+
   def sweep(input)
     "Field #1:\n" +
-    if input[4] == "*" and input[5] == "\n" and input[6] == nil
-      "*"
-    elsif input[4] == "." and input[5] == "\n" and input[6] == nil
-      "0"
-    elsif input[4] == "." and input[5] == "." and input[6] == "\n"
-      "0" + "0"
-    elsif input[4] == "*" and input[5] == "*" and input[6] == "\n"
-      "*" + "*"
-    elsif input[4] == "*" and input[5] == "*" and input[6] == "*"
+    if input[6] == nil
+      display(input[4])
+    elsif input[6] == "\n"
+      display(input[4]) + display(input[5])
+    elsif input[6] == "*"
       "*" + "*" + "*"
     end + "\n"
   end
