@@ -1,10 +1,14 @@
 RSpec.describe "Minesweeper" do
   def display(previous, current, nextField)
-    if current == "*"
+    def is_mine(field)
+      field == "*"
+    end
+
+    if is_mine(current)
       "*"
-    elsif current == "." and previous == "*" and nextField == "*"
+    elsif current == "." and is_mine(previous) and is_mine(nextField)
       "2"
-    elsif current == "." and previous == "*" or nextField == "*"
+    elsif current == "." and is_mine(previous) or is_mine(nextField)
       "1"
     elsif current == "."
       "0"
