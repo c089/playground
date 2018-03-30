@@ -11,13 +11,10 @@ RSpec.describe "Minesweeper" do
 
   def sweep(input)
     "Field #1:\n" +
-    if input[6] == nil
-      display(input[4]) + display(input[5]) + display(input[6])
-    elsif input[6] == "\n"
-      display(input[4]) + display(input[5]) + display(input[6])
-    elsif input[6] == "*"
-      display(input[4]) + display(input[5]) + display(input[6])
-    end + "\n"
+      display(input[4]) +
+      display(input[5]) +
+      display(input[6]) +
+      "\n"
   end
 
   it "given a 1 by 1 minefield with no mines, returns a 0 for that field" do
