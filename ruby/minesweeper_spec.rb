@@ -1,5 +1,5 @@
 RSpec.describe "Minesweeper" do
-  def display(previous, current, nextField)
+  def sweep_field(previous, current, nextField)
     def is_mine(field)
       field == "*"
     end
@@ -25,7 +25,7 @@ RSpec.describe "Minesweeper" do
     minefield = ""
     i = 3
     while i <= input.length
-      minefield += display(input[i], input[i+1], input[i+2])
+      minefield += sweep_field(input[i], input[i+1], input[i+2])
       i += 1
     end
 
