@@ -3,14 +3,12 @@ RSpec.describe "Minesweeper" do
     "Field #1:\n" +
     if input[5] == "."
         "00"
+    elsif input[4] == "*" and input[5] == "*"
+      "**"
     elsif input[4] == "*"
-      if input[5] == "*"
-        "**"
-      else
-        "*"
-      end
+      "*"
     else
-        "0"
+      "0"
     end + "\n"
   end
 
