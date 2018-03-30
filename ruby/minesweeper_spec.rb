@@ -8,7 +8,9 @@ RSpec.describe "Minesweeper" do
   end
 
   def sweep_field(previous, current, nextField)
-    if is_mine(current)
+    if current == "\n"
+      "\n"
+    elsif is_mine(current)
       "*"
     elsif is_safe(current) and is_mine(previous) and is_mine(nextField)
       "2"
@@ -29,7 +31,7 @@ RSpec.describe "Minesweeper" do
       i += 1
     end
 
-    "Field #1:\n" + minefield + "\n"
+    "Field #1:\n" + minefield
   end
 
   it "given a 1 by 1 minefield with no mines, returns a 0 for that field" do
@@ -162,6 +164,22 @@ RSpec.describe "Minesweeper" do
     expected = <<~END
       Field #1:
       1*2*2*1
+    END
+
+    expect(sweep(input)).to eq expected
+  end
+
+  it "givena 2x1 field with no mines" do
+    input = <<~END
+      2 1
+      .
+      .
+    END
+
+    expected = <<~END
+      Field #1:
+      0
+      0
     END
 
     expect(sweep(input)).to eq expected
