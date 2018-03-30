@@ -2,12 +2,10 @@ RSpec.describe "Minesweeper" do
   def display(left, c, right)
     if c == "*"
       "*"
+    elsif c == "." and left == "*" or right == "*"
+      "1"
     elsif c == "."
-      if left == "*" or right == "*"
-        "1"
-      else
-        "0"
-      end
+      "0"
     else
       ""
     end
@@ -17,7 +15,7 @@ RSpec.describe "Minesweeper" do
     "Field #1:\n" +
       display(input[3], input[4], input[5]) +
       display(input[4], input[5], input[6]) +
-      display(input[4], input[6], input[7]) + "\n"
+      display(input[5], input[6], input[7]) + "\n"
   end
 
   it "given a 1 by 1 minefield with no mines, returns a 0 for that field" do
@@ -108,6 +106,20 @@ RSpec.describe "Minesweeper" do
     expected = <<~END
       Field #1:
       ***
+    END
+
+    expect(sweep(input)).to eq expected
+  end
+
+  it "given a 1 by 3 minefield with a mine in the center" do
+    input = <<~END
+      1 3
+      .*.
+    END
+
+    expected = <<~END
+      Field #1:
+      1*1
     END
 
     expect(sweep(input)).to eq expected
