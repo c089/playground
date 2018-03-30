@@ -4,7 +4,11 @@ RSpec.describe "Minesweeper" do
     if input[5] == "."
         "00\n"
     elsif input[4] == "*"
+      if input[5] == "*"
+        "**\n"
+      else
         "*\n"
+      end
     else
         "0\n"
     end
@@ -42,6 +46,20 @@ RSpec.describe "Minesweeper" do
     expected = <<~END
       Field #1:
       00
+    END
+
+    expect(sweep(input)).to eq expected
+  end
+
+  it "given a 1 by 2 minefield full of mines, return *s" do
+    input = <<~END
+      1 2
+      **
+    END
+
+    expected = <<~END
+      Field #1:
+      **
     END
 
     expect(sweep(input)).to eq expected
