@@ -1,9 +1,16 @@
 RSpec.describe "Minesweeper" do
-  def sweep(_)
-    <<~END
-      Field #1:
-      0
-    END
+  def sweep(input)
+    if input[4] == "*"
+      <<~END
+        Field #1:
+        *
+      END
+    else
+      <<~END
+        Field #1:
+        0
+      END
+    end
   end
 
   it "given a 1 by 1 minefield with no mines, returns a 0 for that field" do
@@ -14,6 +21,18 @@ RSpec.describe "Minesweeper" do
     expected = <<~END
       Field #1:
       0
+    END
+    expect(sweep(input)).to eq expected
+  end
+
+  it "given a 1 by 1 minefield with a mine, returns a * for that field" do
+    input = <<~END
+      1 1
+      *
+    END
+    expected = <<~END
+      Field #1:
+      *
     END
     expect(sweep(input)).to eq expected
   end
