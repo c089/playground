@@ -169,7 +169,7 @@ RSpec.describe "Minesweeper" do
     expect(sweep(input)).to eq expected
   end
 
-  it "givena 2x1 field with no mines" do
+  it "given a 2x1 field with no mines" do
     input = <<~END
       2 1
       .
@@ -180,6 +180,22 @@ RSpec.describe "Minesweeper" do
       Field #1:
       0
       0
+    END
+
+    expect(sweep(input)).to eq expected
+  end
+
+  it "given a 2x2 field with a mine in the top left" do
+    input = <<~END
+      2 2
+      *.
+      ..
+    END
+
+    expected = <<~END
+      Field #1:
+      *1
+      11
     END
 
     expect(sweep(input)).to eq expected
