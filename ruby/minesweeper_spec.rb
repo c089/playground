@@ -1,20 +1,12 @@
 RSpec.describe "Minesweeper" do
   def sweep(input)
+    "Field #1:\n" +
     if input[5] == "."
-      <<~END
-        Field #1:
-        00
-      END
+        "00\n"
     elsif input[4] == "*"
-      <<~END
-        Field #1:
-        *
-      END
+        "*\n"
     else
-      <<~END
-        Field #1:
-        0
-      END
+        "0\n"
     end
   end
 
