@@ -4,13 +4,17 @@ RSpec.describe "Minesweeper" do
       field == "*"
     end
 
+    def is_safe(field)
+      field == "."
+    end
+
     if is_mine(current)
       "*"
-    elsif current == "." and is_mine(previous) and is_mine(nextField)
+    elsif is_safe(current) and is_mine(previous) and is_mine(nextField)
       "2"
-    elsif current == "." and is_mine(previous) or is_mine(nextField)
+    elsif is_safe(current) and is_mine(previous) or is_mine(nextField)
       "1"
-    elsif current == "."
+    elsif is_safe(current)
       "0"
     else
       ""
