@@ -1,10 +1,12 @@
 RSpec.describe "Minesweeper" do
-  def display(left, c, right)
-    if c == "*"
+  def display(previous, current, nextField)
+    if current == "*"
       "*"
-    elsif c == "." and left == "*" or right == "*"
+    elsif current == "." and previous == "*" and nextField == "*"
+      "2"
+    elsif current == "." and previous == "*" or nextField == "*"
       "1"
-    elsif c == "."
+    elsif current == "."
       "0"
     else
       ""
@@ -12,10 +14,14 @@ RSpec.describe "Minesweeper" do
   end
 
   def sweep(input)
-    "Field #1:\n" +
-      display(input[3], input[4], input[5]) +
-      display(input[4], input[5], input[6]) +
-      display(input[5], input[6], input[7]) + "\n"
+    minefield = ""
+    i = 3
+    while i <= input.length
+      minefield += display(input[i], input[i+1], input[i+2])
+      i += 1
+    end
+
+    "Field #1:\n" + minefield + "\n"
   end
 
   it "given a 1 by 1 minefield with no mines, returns a 0 for that field" do
@@ -124,6 +130,35 @@ RSpec.describe "Minesweeper" do
 
     expect(sweep(input)).to eq expected
   end
+
+  it "givena 1x3 row with two mines on the edges, show a 2 between" do
+    input = <<~END
+      1 3
+      *.*
+    END
+
+    expected = <<~END
+      Field #1:
+      *2*
+    END
+
+    expect(sweep(input)).to eq expected
+  end
+
+  it "given a wide one row minefield with a few mines" do
+    input = <<~END
+      1 7
+      .*.*.*.
+    END
+
+    expected = <<~END
+      Field #1:
+      1*2*2*1
+    END
+
+    expect(sweep(input)).to eq expected
+  end
+
 
   # it "passes the acceptance test" do
   #   input = <<~END
