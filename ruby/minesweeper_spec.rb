@@ -48,7 +48,8 @@ RSpec.describe "Minesweeper" do
 
   it "given a 1 by 1 minefield with a mine, returns a * for that field" do
     input = <<~END
-      1 1 *
+      1 1
+      *
     END
     expected = <<~END
       Field #1:
