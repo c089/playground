@@ -186,21 +186,21 @@ RSpec.describe "Minesweeper" do
     expect(sweep(input)).to eq expected
   end
 
-  it "given a 2x2 field with a mine in the top left" do
-    input = <<~END
-      2 2
-      *.
-      ..
-    END
+  # it "given a 2x2 field with a mine in the top left" do
+  #   input = <<~END
+  #     2 2
+  #     *.
+  #     ..
+  #   END
 
-    expected = <<~END
-      Field #1:
-      *1
-      11
-    END
+  #   expected = <<~END
+  #     Field #1:
+  #     *1
+  #     11
+  #   END
 
-    expect(sweep(input)).to eq expected
-  end
+  #   expect(sweep(input)).to eq expected
+  # end
 
 
   # it "passes the acceptance test" do
