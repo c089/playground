@@ -8,26 +8,27 @@ RSpec.describe "Minesweeper" do
   end
 
   def sweep_field(previous, current, nextField)
-    if current == "\n"
-      "\n"
-    elsif is_mine(current)
+    if is_mine(current)
       "*"
-    elsif is_safe(current) and is_mine(previous) and is_mine(nextField)
+    elsif is_mine(previous) and is_mine(nextField)
       "2"
-    elsif is_safe(current) and is_mine(previous) or is_mine(nextField)
+    elsif is_mine(previous) or is_mine(nextField)
       "1"
-    elsif is_safe(current)
-      "0"
     else
-      ""
+      "0"
     end
   end
 
   def sweep(input)
     minefield = ""
-    i = input.index("\n")
+    i = input.index("\n")+1
     while i < input.length
-      minefield += sweep_field(input[i], input[i+1], input[i+2])
+      current = input[i]
+      if current == "\n"
+        minefield += "\n"
+      else
+        minefield += sweep_field(input[i-1], current, input[i+1])
+      end
       i += 1
     end
 
