@@ -25,8 +25,8 @@ RSpec.describe "Minesweeper" do
 
   def sweep(input)
     minefield = ""
-    i = 3
-    while i <= input.length
+    i = input.index("\n")
+    while i < input.length
       minefield += sweep_field(input[i], input[i+1], input[i+2])
       i += 1
     end
@@ -158,13 +158,13 @@ RSpec.describe "Minesweeper" do
 
   it "given a wide one row minefield with a few mines" do
     input = <<~END
-      1 7
-      .*.*.*.
+      1 11
+      .*.*.*.*.*.
     END
 
     expected = <<~END
       Field #1:
-      1*2*2*1
+      1*2*2*2*2*1
     END
 
     expect(sweep(input)).to eq expected
