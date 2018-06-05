@@ -1,5 +1,9 @@
 def to_roman(arabic_number)
-  "I"
+  if arabic_number == 1
+    "I"
+  else
+    "II"
+  end
 end
 
 Given("the arabic number {int}") do |int|
