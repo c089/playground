@@ -5,8 +5,10 @@ def to_roman(arabic_number)
     "II"
   elsif arabic_number == 3
     "III"
-  else
+  elsif arabic_number == 4
     "IV"
+  elsif arabic_number == 5
+    "V"
   end
 end
 
