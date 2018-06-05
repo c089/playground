@@ -9,6 +9,10 @@ def to_roman(arabic_number)
   numeral = roman_numerals[arabic_number]
   if numeral
     numeral
+  elsif arabic_number == 20
+    to_roman(arabic_number - 10) + to_roman(10)
+  elsif arabic_number == 30
+    to_roman(arabic_number - 10) + to_roman(10)
   else
     to_roman(arabic_number - 1) + to_roman(1)
   end
