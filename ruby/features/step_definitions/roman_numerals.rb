@@ -2,7 +2,8 @@ def to_roman(arabic_number)
   roman_numerals = {
     1 => "I",
     4 => "IV",
-    5 => "V"
+    5 => "V",
+    9 => "IX"
   }
   numeral = roman_numerals[arabic_number]
   if numeral
