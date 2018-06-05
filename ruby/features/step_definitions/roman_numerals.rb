@@ -1,21 +1,11 @@
 def to_roman(arabic_number)
   if arabic_number == 1
     "I"
-  elsif arabic_number == 2
-    to_roman(1) + to_roman(1)
-  elsif arabic_number == 3
-    to_roman(2) + to_roman(1)
   elsif arabic_number == 4
     to_roman(1) + "V"
   elsif arabic_number == 5
     "V"
-  elsif arabic_number == 6
-    to_roman(arabic_number - 1) + to_roman(1)
-  elsif arabic_number == 7
-    to_roman(arabic_number - 1) + to_roman(1)
-  elsif arabic_number == 7
-    to_roman(arabic_number - 1) + to_roman(1)
-  elsif arabic_number == 8
+  else
     to_roman(arabic_number - 1) + to_roman(1)
   end
 end
