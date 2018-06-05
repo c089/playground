@@ -9,6 +9,8 @@ def to_roman(arabic_number)
     "IV"
   elsif arabic_number == 5
     "V"
+  elsif arabic_number == 6
+    "VI"
   end
 end
 
