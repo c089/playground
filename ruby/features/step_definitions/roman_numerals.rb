@@ -2,15 +2,15 @@ def to_roman(arabic_number)
   if arabic_number == 1
     "I"
   elsif arabic_number == 2
-    "II"
+    "I" + "I"
   elsif arabic_number == 3
-    "III"
+    "II" + "I"
   elsif arabic_number == 4
-    "IV"
+    "I" + "V"
   elsif arabic_number == 5
     "V"
   elsif arabic_number == 6
-    "VI"
+    "V" + "I"
   end
 end
 
