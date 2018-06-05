@@ -6,11 +6,17 @@ def to_roman(arabic_number)
   elsif arabic_number == 3
     to_roman(2) + to_roman(1)
   elsif arabic_number == 4
-    to_roman(1) + to_roman(5)
+    to_roman(1) + "V"
   elsif arabic_number == 5
     "V"
   elsif arabic_number == 6
     to_roman(5) + to_roman(1)
+  elsif arabic_number == 7
+    to_roman(6) + to_roman(1)
+  elsif arabic_number == 7
+    to_roman(6) + to_roman(1)
+  elsif arabic_number == 8
+    to_roman(7) + to_roman(1)
   end
 end
 

@@ -14,4 +14,6 @@ Feature: Converting between Roman and Arabic numerals
   | 4      | IV    |
   | 5      | V     |
   | 6      | VI    |
+  | 7      | VII   |
+  | 8      | VIII  |
 
