@@ -1,4 +1,4 @@
-def to_arabic(roman_number)
+def to_roman(arabic_number)
   "I"
 end
 
@@ -7,7 +7,7 @@ Given("the arabic number {int}") do |int|
 end
 
 When("I convert it to roman") do
-  @result = to_arabic(@number)
+  @result = to_roman(@number)
 end
 
 Then("I should get {string}") do |expected_result|
