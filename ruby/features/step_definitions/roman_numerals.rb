@@ -1,8 +1,10 @@
 def to_roman(arabic_number)
   if arabic_number == 1
     "I"
-  else
+  elsif arabic_number == 2
     "II"
+  else
+    "III"
   end
 end
 
