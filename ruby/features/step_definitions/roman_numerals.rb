@@ -1,10 +1,15 @@
 def to_roman(arabic_number)
+  roman_numerals = {
+    1 => "I",
+    4 => "IV",
+    5 => "V"
+  }
   if arabic_number == 1
-    "I"
+    roman_numerals[arabic_number]
   elsif arabic_number == 4
-    "IV"
+    roman_numerals[arabic_number]
   elsif arabic_number == 5
-    "V"
+    roman_numerals[arabic_number]
   else
     to_roman(arabic_number - 1) + to_roman(1)
   end
