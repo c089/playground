@@ -11,4 +11,5 @@ Feature: Converting between Roman and Arabic numerals
   | 1      | I     |
   | 2      | II    |
   | 3      | III   |
+  | 4      | IV    |
 
