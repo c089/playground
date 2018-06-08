@@ -1,5 +1,5 @@
 class Minesweeper
   def sweep input
-    "Field #1\n0"
+    "Field #1:\n0"
   end
 end
