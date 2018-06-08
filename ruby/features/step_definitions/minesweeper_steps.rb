@@ -1,11 +1,12 @@
+require './minesweeper.rb'
 Given("some minefields") do |minefields|
-  pending # Write code here that turns the phrase above into concrete actions
+  @input = minefields
 end
 
 When("I sweep the fields") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @result = Minesweeper.new.sweep(@input)
 end
 
 Then("I should see the minefields with hint numbers:") do |expected_minefields|
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@result).to eq(expected_minefields)
 end
