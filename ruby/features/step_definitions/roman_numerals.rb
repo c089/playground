@@ -3,6 +3,7 @@ Given("the arabic number {int}") do |int|
 end
 
 smybols = {
+  1 => "I"
 }
 
 When("I convert it to roman") do
