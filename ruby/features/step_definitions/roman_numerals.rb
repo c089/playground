@@ -5,8 +5,10 @@ end
 When("I convert it to roman") do
   @result = if @number == 1
     "I"
-  else
+  elsif @number == 5
     "V"
+  elsif @number == 10
+    "X"
   end
 end
 
