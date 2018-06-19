@@ -2,13 +2,13 @@ Given("the arabic number {int}") do |int|
   @number = int
 end
 
-smybols = {
+symbols = {
   1 => "I"
 }
 
 When("I convert it to roman") do
   @result = if @number == 1
-    "I"
+    symbols[@number]
   elsif @number == 5
     "V"
   else
