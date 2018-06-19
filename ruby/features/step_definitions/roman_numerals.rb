@@ -9,13 +9,7 @@ symbols = {
 }
 
 When("I convert it to roman") do
-  @result = if @number == 1
-    symbols[@number]
-  elsif @number == 5
-    symbols[@number]
-  else
-    symbols[@number]
-  end
+  @result = symbols[@number]
 end
 
 Then("I should get {string}") do |expected_result|
