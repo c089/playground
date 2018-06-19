@@ -3,14 +3,15 @@ Given("the arabic number {int}") do |int|
 end
 
 symbols = {
-  1 => "I"
+  1 => "I",
+  5 => "V",
 }
 
 When("I convert it to roman") do
   @result = if @number == 1
     symbols[@number]
   elsif @number == 5
-    "V"
+    symbols[@number]
   else
     "X"
   end
