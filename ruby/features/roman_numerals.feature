@@ -9,6 +9,7 @@ Feature: Converting between Roman and Arabic numerals
   Examples:
   | arabic | roman |
   | 1      | I     |
+  | 2      | II    |
   | 5      | V     |
   | 10     | X     |
 
