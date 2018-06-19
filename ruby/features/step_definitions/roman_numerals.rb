@@ -2,6 +2,9 @@ Given("the arabic number {int}") do |int|
   @number = int
 end
 
+smybols = {
+}
+
 When("I convert it to roman") do
   @result = if @number == 1
     "I"
