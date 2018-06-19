@@ -5,6 +5,7 @@ end
 symbols = {
   1 => "I",
   5 => "V",
+  10 => "X"
 }
 
 When("I convert it to roman") do
@@ -13,7 +14,7 @@ When("I convert it to roman") do
   elsif @number == 5
     symbols[@number]
   else
-    "X"
+    symbols[@number]
   end
 end
 
