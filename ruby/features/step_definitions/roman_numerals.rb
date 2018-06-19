@@ -7,7 +7,7 @@ When("I convert it to roman") do
     "I"
   elsif @number == 5
     "V"
-  elsif @number == 10
+  else
     "X"
   end
 end
