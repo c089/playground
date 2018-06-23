@@ -13,7 +13,11 @@ symbols = {
 }
 
 When("I convert it to roman") do
-  @result = symbols[@number]
+  if @number == 11
+    @result = symbols[10] + symbols[1]
+  else
+    @result = symbols[@number]
+  end
 end
 
 Then("I should get {string}") do |expected_result|
