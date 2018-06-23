@@ -22,10 +22,12 @@ def to_roman arabic_number
   else
     @result = symbols[arabic_number]
   end
+
+  @result
 end
 
 When("I convert it to roman") do
-  to_roman @number
+  @result = to_roman @number
 end
 
 Then("I should get {string}") do |expected_result|
