@@ -2,7 +2,7 @@ Given("the arabic number {int}") do |int|
   @number = int
 end
 
-def to_roman
+def to_roman arabic_number
   symbols = {
     1 => "I",
     2 => "II",
@@ -25,7 +25,7 @@ def to_roman
 end
 
 When("I convert it to roman") do
-  to_roman
+  to_roman @number
 end
 
 Then("I should get {string}") do |expected_result|
