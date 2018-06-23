@@ -17,6 +17,8 @@ When("I convert it to roman") do
     @result = symbols[10] + symbols[1]
   elsif @number == 12
     @result = symbols[10] + symbols[1] + symbols[1]
+  elsif @number == 13
+    @result = symbols[10] + symbols[1] + symbols[1] + symbols[1]
   else
     @result = symbols[@number]
   end

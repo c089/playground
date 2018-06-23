@@ -17,4 +17,5 @@ Feature: Converting between Roman and Arabic numerals
   | 10     | X     |
   | 11     | XI    |
   | 12     | XII   |
+  | 13     | XIII  |
 
