@@ -13,14 +13,14 @@ def to_roman arabic_number
     10 => "X"
   }
 
-  if @number == 11
+  if arabic_number == 11
     @result = symbols[10] + symbols[1]
-  elsif @number == 12
+  elsif arabic_number == 12
     @result = symbols[10] + symbols[1] + symbols[1]
-  elsif @number == 13
+  elsif arabic_number == 13
     @result = symbols[10] + symbols[1] + symbols[1] + symbols[1]
   else
-    @result = symbols[@number]
+    @result = symbols[arabic_number]
   end
 end
 
