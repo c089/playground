@@ -14,16 +14,14 @@ def to_roman arabic_number
   }
 
   if arabic_number == 11
-    @result = symbols[10] + symbols[1]
+    symbols[10] + symbols[1]
   elsif arabic_number == 12
-    @result = symbols[10] + symbols[1] + symbols[1]
+    symbols[10] + symbols[1] + symbols[1]
   elsif arabic_number == 13
-    @result = symbols[10] + symbols[1] + symbols[1] + symbols[1]
+    symbols[10] + symbols[1] + symbols[1] + symbols[1]
   else
-    @result = symbols[arabic_number]
+    symbols[arabic_number]
   end
-
-  @result
 end
 
 When("I convert it to roman") do
