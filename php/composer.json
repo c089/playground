@@ -1,0 +1,13 @@
+{
+    "name": "c089/playground-php",
+    "description": "PHP playground and kata environment",
+    "require-dev": {
+        "phpunit/phpunit": "^7.4"
+    },
+    "authors": [
+        {
+            "name": "Christoph Neuroth",
+            "email": "christoph.neuroth@gmail.com"
+        }
+    ]
+}
