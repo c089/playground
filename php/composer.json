@@ -4,6 +4,14 @@
     "require-dev": {
         "phpunit/phpunit": "^7.4"
     },
+    "scripts": {
+        "test": "phpunit ."
+    },
+    "autoload": {
+        "psr-4": {
+            "BirthdayGreetings\\": "src/"
+        }
+    },
     "authors": [
         {
             "name": "Christoph Neuroth",
