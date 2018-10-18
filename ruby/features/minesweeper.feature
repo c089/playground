@@ -1,3 +1,4 @@
+@ignore
 Feature: Minesweeper Kata
 
   Scenario: Sweeping two minefields
