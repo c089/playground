@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+GEM_HOME=$HOME/.gem
+GEM_PATH=$HOME/.gem
 PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 cd ruby
 gem install --no-rdoc --no-ri --user-install bundler
