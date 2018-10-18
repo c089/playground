@@ -6,4 +6,4 @@ cd ruby
 gem install --user-install bundler
 bundle install
 bundle exec rspec *_spec.rb
-bundle exec cucumber
+bundle exec cucumber --tags "not @ignore"
