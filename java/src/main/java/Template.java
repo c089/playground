@@ -13,11 +13,16 @@ public class Template {
     }
 
     public String evaluate() throws MissingValueException {
+        String result = replaceVariables();
+        checkForMissingValues(result);
+        return result;
+    }
+
+    private String replaceVariables() {
         String result = this.template;
         for (var entry : this.values.entrySet()) {
             result = result.replace("${" + entry.getKey() + "}", entry.getValue());
         }
-        checkForMissingValues(result);
         return result;
     }
 
