@@ -9,7 +9,7 @@ public class Template {
         return "Hello, " + this.value;
     }
 
-    public void set(String name, String reader) {
-        this.value = reader;
+    public void set(String name, String value) {
+        this.value = value;
     }
 }
