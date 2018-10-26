@@ -20,4 +20,11 @@ public class AcceptanceTest {
         template.set("name", "Krys");
         assertEquals("Hello, Krys", template.evaluate());
     }
+
+    @Test
+    void testDifferentTemplate() {
+        Template template = new Template("¡Hola, ${name}!");
+        template.set("name", "Krys");
+        assertEquals("¡Hola, Krys!", template.evaluate());
+    }
 }
