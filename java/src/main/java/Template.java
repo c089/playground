@@ -12,10 +12,13 @@ public class Template {
         template = s;
     }
 
-    public String evaluate() {
+    public String evaluate() throws MissingValueException {
         String result = this.template;
         for (var entry : this.values.entrySet()) {
             result = result.replace("${" + entry.getKey() + "}", entry.getValue());
+        }
+        if (result.matches(".*\\$\\{.+\\}.*")) {
+            throw new MissingValueException();
         }
         return result;
     }

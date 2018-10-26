@@ -9,28 +9,28 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AcceptanceTest {
     @Test
-    public void testOneVariable() {
+    public void testOneVariable() throws MissingValueException {
         Template template = new Template("Hello, ${name}");
         template.set("name", "Reader");
         assertEquals("Hello, Reader", template.evaluate());
     }
 
     @Test
-    void testDifferentValue() {
+    void testDifferentValue() throws MissingValueException {
         Template template = new Template("Hello, ${name}");
         template.set("name", "Krys");
         assertEquals("Hello, Krys", template.evaluate());
     }
 
     @Test
-    void testDifferentTemplate() {
+    void testDifferentTemplate() throws MissingValueException {
         Template template = new Template("¡Hola, ${name}!");
         template.set("name", "Krys");
         assertEquals("¡Hola, Krys!", template.evaluate());
     }
 
     @Test
-    void testMultipleVariables() {
+    void testMultipleVariables() throws MissingValueException {
         Template template = new Template("${one}, ${two}, ${three}");
         template.set("one", "1");
         template.set("two", "2");
@@ -39,7 +39,7 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void unknownVariablesAreIgnored() {
+    public void unknownVariablesAreIgnored() throws MissingValueException {
         Template template = new Template("Hello, ${name}");
         template.set("name", "Reader");
         template.set("doesnotexist", "Hi");
