@@ -47,6 +47,15 @@ public class AcceptanceTest {
     }
 
     @Test
+    public void variablesGetProcessedJustOnce() throws Exception {
+        Template template = new Template("${one}, ${two}, ${three}");
+        template.set("one", "${one}");
+        template.set("two", "${three}");
+        template.set("three", "${two}");
+        assertEquals("${one}, ${three}, ${two}", template.evaluate());
+    }
+
+    @Test
     void shouldThrowMissingValueExceptionForMissingValue() {
         final MissingValueException missingValueException = assertThrows(MissingValueException.class, () -> {
             new Template("${name}").evaluate();
