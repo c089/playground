@@ -48,8 +48,9 @@ public class AcceptanceTest {
 
     @Test
     void shouldThrowMissingValueExceptionForMissingValue() {
-        assertThrows(MissingValueException.class, () -> {
+        final MissingValueException missingValueException = assertThrows(MissingValueException.class, () -> {
             new Template("${name}").evaluate();
         });
+        assertEquals("No value for ${name}", missingValueException.getMessage());
     }
 }
