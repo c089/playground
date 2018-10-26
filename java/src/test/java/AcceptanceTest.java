@@ -5,6 +5,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class AcceptanceTest {
     @Test
@@ -35,5 +36,20 @@ public class AcceptanceTest {
         template.set("two", "2");
         template.set("three", "3");
         assertEquals("1, 2, 3", template.evaluate());
+    }
+
+    @Test
+    public void unknownVariablesAreIgnored() {
+        Template template = new Template("Hello, ${name}");
+        template.set("name", "Reader");
+        template.set("doesnotexist", "Hi");
+        assertEquals("Hello, Reader", template.evaluate());
+    }
+
+    @Test
+    void shouldThrowMissingValueExceptionForMissingValue() {
+        assertThrows(MissingValueException.class, () -> {
+            new Template("${name}").evaluate();
+        });
     }
 }
