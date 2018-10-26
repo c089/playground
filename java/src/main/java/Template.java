@@ -14,7 +14,7 @@ public class Template {
 
     public String evaluate() {
         String result = this.template;
-        for (Map.Entry<String, String> entry : this.values.entrySet()) {
+        for (var entry : this.values.entrySet()) {
             String k = entry.getKey();
             String v = entry.getValue();
             result = result.replace("${"+k+"}", v);
