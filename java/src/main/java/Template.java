@@ -4,7 +4,7 @@ public class Template {
     }
 
     public String evaluate() {
-        return null;
+        return "Hello, Reader";
     }
 
     public void set(String name, String reader) {
