@@ -17,10 +17,14 @@ public class Template {
         for (var entry : this.values.entrySet()) {
             result = result.replace("${" + entry.getKey() + "}", entry.getValue());
         }
+        checkForMissingValues(result);
+        return result;
+    }
+
+    private void checkForMissingValues(String result) throws MissingValueException {
         if (result.matches(".*\\$\\{.+\\}.*")) {
             throw new MissingValueException();
         }
-        return result;
     }
 
     public void set(String name, String value) {
