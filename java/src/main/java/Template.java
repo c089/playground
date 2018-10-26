@@ -15,7 +15,7 @@ public class Template {
     public String evaluate() {
         String result = this.template;
         for (var entry : this.values.entrySet()) {
-            result = result.replace("${"+ entry.getKey() +"}", entry.getValue());
+            result = result.replace("${" + entry.getKey() + "}", entry.getValue());
         }
         return result;
     }
