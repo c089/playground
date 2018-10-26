@@ -27,4 +27,13 @@ public class AcceptanceTest {
         template.set("name", "Krys");
         assertEquals("¡Hola, Krys!", template.evaluate());
     }
+
+    @Test
+    void testMultipleVariables() {
+        Template template = new Template("${one}, ${two}, ${three}");
+        template.set("one", "1");
+        template.set("two", "2");
+        template.set("three", "3");
+        assertEquals("1, 2, 3", template.evaluate());
+    }
 }
