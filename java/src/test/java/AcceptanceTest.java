@@ -8,7 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AcceptanceTest {
     @Test
-    public void testStartingPoint() {
-        assertEquals(false, true, "enjoy your kata!");
+    public void testOneVariable() {
+        Template template = new Template("Hello, ${name}");
+        template.set("name", "Reader");
+        assertEquals("Hello, Reader", template.evaluate());
     }
 }
