@@ -18,6 +18,12 @@ public class TemplateParseTest {
         assertSegments(segments, "plain text only");
     }
 
+    @Test
+    public void parsingMultipleVariables() throws Exception {
+        List<String> segments = parse("${a}:${b}:${c}");
+        assertSegments(segments, "${a}", ":", "${b}", ":", "${c}");
+    }
+
     private void assertSegments(List<String> segments, Object... expected) {
         assertEquals(expected.length, segments.size(), "Number of segments doesn't match.");
         assertEquals(List.of(expected), segments);
