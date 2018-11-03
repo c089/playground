@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class Variable implements Segment {
     private String name;
 
@@ -7,5 +9,10 @@ public class Variable implements Segment {
 
     public boolean equals(Object other) {
         return name.equals(((Variable) other).name);
+    }
+
+    @Override
+    public String evaluate(Map<String, String> variables) {
+        return null;
     }
 }
