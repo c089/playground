@@ -10,16 +10,16 @@ public class Template {
         template = s;
     }
 
-    public String evaluate() throws MissingValueException {
-        TemplateParse parser = new TemplateParse();
-        List<String> segments = parser.parse(template);
+    public String evaluate() {
+        TemplateParse p = new TemplateParse();
+        List<Segment> segments = p.parseSegments(template);
         return concatenate(segments);
     }
 
-    private String concatenate(List<String> segments) throws MissingValueException {
+    private String concatenate(List<Segment> segments) {
         StringBuilder result = new StringBuilder();
-        for (String segment : segments) {
-            append(segment, result);
+        for (Segment segment : segments) {
+            result.append(segment.evaluate(values));
         }
         return result.toString();
     }
