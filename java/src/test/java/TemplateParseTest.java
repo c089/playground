@@ -18,9 +18,9 @@ public class TemplateParseTest {
         assertSegments(segments, "plain text only");
     }
 
-    private void assertSegments(List<String> segments, String s) {
+    private void assertSegments(List<String> segments, Object... expected) {
         assertEquals(1, segments.size(), "Number of segments");
-        assertEquals(s, segments.get(0));
+        assertEquals(List.of(expected), segments);
     }
 
     private List<String> parse(String s) {
