@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TemplateParse {
-    private static boolean isVariable(String segment) {
+    private boolean isVariable(String segment) {
         return segment.startsWith("${") && segment.endsWith("}");
     }
 
