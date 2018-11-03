@@ -15,4 +15,14 @@ class VariableSegmentTest {
         assertEquals(value, new Variable(name).evaluate(variables));
     }
 
+    @Test
+    public void missingVariableRaisesException() throws Exception {
+        String name = "myvar";
+        try {
+            new Variable(name).evaluate(new HashMap<String, String>());
+            fail("Missing variable value should raise an exception");
+        } catch (MissingValueException expected) {
+        }
+    }
+
 }
