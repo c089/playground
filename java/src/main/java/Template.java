@@ -24,22 +24,6 @@ public class Template {
         return result.toString();
     }
 
-    private void append(String segment, StringBuilder result) throws MissingValueException {
-        if (isVariable(segment)) {
-            evaluateVariable(segment, result);
-        } else {
-            result.append(segment);
-        }
-    }
-
-    private void evaluateVariable(String segment, StringBuilder result) throws MissingValueException {
-        String var = segment.substring(2, segment.length() - 1);
-        if (!values.containsKey(var)) {
-            throw new MissingValueException("No value for " + segment);
-        }
-        result.append(values.get(var));
-    }
-
     public static boolean isVariable(String segment) {
         return segment.startsWith("${") && segment.endsWith("}");
     }
