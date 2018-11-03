@@ -48,7 +48,6 @@ public class AcceptanceTest {
     }
 
     @Test
-    @Disabled("red at end of chapter 2")
     public void variablesGetProcessedJustOnce() throws Exception {
         Template template = new Template("${one}, ${two}, ${three}");
         template.set("one", "${one}");
