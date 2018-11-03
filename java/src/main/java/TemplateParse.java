@@ -4,16 +4,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TemplateParse {
-    private boolean isVariable(String segment) {
-        return segment.startsWith("${") && segment.endsWith("}");
-    }
-
     public List<String> parse(String template) {
         List<String> segments = new ArrayList<String>();
         int index = collectSegments(segments, template);
         addTail(segments, template, index);
         addEmptyStringIfTemplateWasEmpty(segments);
         return segments;
+    }
+
+    private boolean isVariable(String segment) {
+        return segment.startsWith("${") && segment.endsWith("}");
     }
 
     private int collectSegments(List<String> segs, String src) {
