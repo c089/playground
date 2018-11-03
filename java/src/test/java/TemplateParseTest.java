@@ -26,7 +26,6 @@ public class TemplateParseTest {
     }
 
     @Test
-    @Disabled("book goes back to refactoring")
     public void parsingTemplateIntoSegmentObjects() throws Exception {
         TemplateParse p = new TemplateParse();
         List<Segment> segments = p.parseSegments("a ${b} c ${d}");
