@@ -24,10 +24,6 @@ public class Template {
         return result.toString();
     }
 
-    public static boolean isVariable(String segment) {
-        return segment.startsWith("${") && segment.endsWith("}");
-    }
-
     public void set(String name, String value) {
         this.values.put(name, value);
     }

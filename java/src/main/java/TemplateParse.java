@@ -4,6 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class TemplateParse {
+    public static boolean isVariable(String segment) {
+        return segment.startsWith("${") && segment.endsWith("}");
+    }
+
     public List<String> parse(String template) {
         List<String> segments = new ArrayList<String>();
         int index = collectSegments(segments, template);
@@ -51,7 +55,7 @@ public class TemplateParse {
         List<Segment> segments = new ArrayList<Segment>();
         List<String> strings = parse(template);
         for (String s : strings) {
-            if (Template.isVariable(s)) {
+            if (isVariable(s)) {
                 String name = s.substring(2, s.length() - 1);
                 segments.add(new Variable(name));
             } else {
