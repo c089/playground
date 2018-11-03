@@ -26,14 +26,18 @@ public class Template {
 
     private void append(String segment, StringBuilder result) throws MissingValueException {
         if (isVariable(segment)) {
-            String var = segment.substring(2, segment.length() - 1);
-            if (!values.containsKey(var)) {
-                throw new MissingValueException("No value for " + segment);
-            }
-            result.append(values.get(var));
+            evaluateVariable(segment, result);
         } else {
             result.append(segment);
         }
+    }
+
+    private void evaluateVariable(String segment, StringBuilder result) throws MissingValueException {
+        String var = segment.substring(2, segment.length() - 1);
+        if (!values.containsKey(var)) {
+            throw new MissingValueException("No value for " + segment);
+        }
+        result.append(values.get(var));
     }
 
     private boolean isVariable(String segment) {
