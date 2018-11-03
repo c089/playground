@@ -13,6 +13,6 @@ public class PlainText implements Segment {
 
     @Override
     public String evaluate(Map<String, String> variables) {
-        return null;
+        return this.text;
     }
 }
