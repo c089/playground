@@ -19,7 +19,7 @@ public class TemplateParseTest {
     }
 
     private void assertSegments(List<String> segments, Object... expected) {
-        assertEquals(1, segments.size(), "Number of segments");
+        assertEquals(expected.length, segments.size(), "Number of segments doesn't match.");
         assertEquals(List.of(expected), segments);
     }
 
