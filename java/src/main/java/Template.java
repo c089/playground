@@ -13,6 +13,10 @@ public class Template {
     public String evaluate() throws MissingValueException {
         TemplateParse parser = new TemplateParse();
         List<String> segments = parser.parse(template);
+        return concatenate(segments);
+    }
+
+    private String concatenate(List<String> segments) throws MissingValueException {
         StringBuilder result = new StringBuilder();
         for (String segment : segments) {
             append(segment, result);
