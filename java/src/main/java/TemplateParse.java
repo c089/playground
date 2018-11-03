@@ -46,4 +46,8 @@ public class TemplateParse {
             segs.add("");
         }
     }
+
+    public List<Segment> parseSegments(String s) {
+        return null;
+    }
 }
