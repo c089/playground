@@ -1,4 +1,4 @@
-public class MissingValueException extends Exception {
+public class MissingValueException extends RuntimeException {
     public MissingValueException(String s) {
         super(s);
     }
