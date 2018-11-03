@@ -25,7 +25,7 @@ public class Template {
     }
 
     private void append(String segment, StringBuilder result) throws MissingValueException {
-        if (segment.startsWith("${") && segment.endsWith("}")) {
+        if (isVariable(segment)) {
             String var = segment.substring(2, segment.length() - 1);
             if (!values.containsKey(var)) {
                 throw new MissingValueException("No value for " + segment);
@@ -34,6 +34,10 @@ public class Template {
         } else {
             result.append(segment);
         }
+    }
+
+    private boolean isVariable(String segment) {
+        return segment.startsWith("${") && segment.endsWith("}");
     }
 
     public void set(String name, String value) {
