@@ -13,6 +13,6 @@ public class Variable implements Segment {
 
     @Override
     public String evaluate(Map<String, String> variables) {
-        return null;
+        return variables.get(name);
     }
 }
