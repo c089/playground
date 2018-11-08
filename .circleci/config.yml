@@ -1,0 +1,28 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/project/typescript
+    docker:
+      - image: circleci/node:11.1.0
+
+    steps:
+      - checkout:
+          path: ~/project/
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
+      - run:
+          command: npm install
+          working_directory: typescript
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run:
+          command: npm test
+          working_directory: typescript
